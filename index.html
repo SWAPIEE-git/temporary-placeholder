@@ -1,13 +1,86 @@
-<div class="bgimg">
-  <div class="topleft">
-    <p>Logo</p>
-  </div>
-  <div class="middle">
-    <h1>COMING SOON</h1>
-    <hr>
-    <p>69 days</p>
-  </div>
-  <div class="bottomleft">
-    <p>Some text</p>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e1e2f, #3a3a52);
+            color: #ffffff;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .countdown {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        footer {
+            position: absolute;
+            bottom: 1rem;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaaaaa;
+        }
+        .tech-icon {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .tech-icon img {
+            width: 50px;
+            height: 50px;
+            opacity: 0.7;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .tech-icon img:hover {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Something Cool is Coming!</h1>
+        <p>Our site is under construction. Stay tuned — launching in <span id="days">69</span> days!</p>
+        <div class="countdown">Launching: <span id="launch-date">(Calculated Date)</span></div>
+        <div class="tech-icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/code.png" alt="Tech Icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/cloud.png" alt="Cloud Icon">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/rocket.png" alt="Rocket Icon">
+        </div>
+    </div>
+    <footer>Copyright &copy; 2024 | All rights reserved.</footer>
+    <script>
+        const daysElement = document.getElementById('days');
+        const launchDateElement = document.getElementById('launch-date');
+
+        const today = new Date();
+        const launchDate = new Date(today);
+        launchDate.setDate(today.getDate() + 69);
+
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        launchDateElement.textContent = launchDate.toLocaleDateString(undefined, options);
+
+        daysElement.textContent = Math.ceil((launchDate - today) / (1000 * 60 * 60 * 24));
+    </script>
+</body>
+</html>
